@@ -6,10 +6,11 @@
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
 }
-
+ 
+/* ya para dejarlo guaperrimo le meto hover con color "laboratorio cientifico terror" xd*/
 .character-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(151, 206, 76, 0.2);
+  box-shadow: 0 8px 20px rgba(125, 172, 59, 0.2); 
 }
 
 .character-card img {

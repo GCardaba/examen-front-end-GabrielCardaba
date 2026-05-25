@@ -1,4 +1,5 @@
 'use client'
+import './Filter.css'
 
 type Props = {
     name: string

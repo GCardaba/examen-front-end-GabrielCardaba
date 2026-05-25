@@ -1,5 +1,7 @@
 'use client'
 
+// TODO: separar de home el paginator y el buscador ya que cada ve que buscas algo se actualiza toda la pagina 
+
 import { api } from '../api/api'
 import { useEffect, useState } from "react"
 import { Filters } from "./components/Filters/Filters"
@@ -52,13 +54,15 @@ export default function Home() {
                  results.results.map(e => (<CharacterCard key={e.id} id={e.id} name={e.name} status={e.status} gender={e.gender} image={e.image}/> ))
                 }
             </div>
-            <Paginator
+            <div className="pagination-container"> <Paginator
                 page={page}
                 setPage={setPage}
                 pages={results?.info.pages || 1}
                 next={results?.info.next || null}
                 prev={results?.info.prev || null}
             />
+            </div>
+            
         </div>
     )
 }

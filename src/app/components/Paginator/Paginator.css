@@ -34,7 +34,6 @@
   font-weight: 700;
 }
 
-/* Flechas < > un poco más anchas */
 .paginator button.arrow {
   min-width: 48px;
   font-size: 16px;

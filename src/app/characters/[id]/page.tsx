@@ -1,5 +1,7 @@
 'use client'
 
+import './page.css'
+
 import { useParams, useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { Character } from "@/app/types/types"

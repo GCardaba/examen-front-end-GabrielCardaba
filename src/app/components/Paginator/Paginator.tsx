@@ -1,4 +1,5 @@
 'use client'
+import './Paginator.css'
 
 type Props = {
     page : number,

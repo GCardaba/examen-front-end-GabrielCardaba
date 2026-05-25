@@ -1,5 +1,7 @@
 'use client'
 
+import './CharacterCard.css'
+
 import { useRouter } from "next/navigation"
 
 type Props = {
