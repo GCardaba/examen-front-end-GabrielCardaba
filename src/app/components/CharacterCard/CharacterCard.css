@@ -5,7 +5,9 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
+  background-color: #fabada;
 }
+
  
 /* ya para dejarlo guaperrimo le meto hover con color "laboratorio cientifico terror" xd*/
 .character-card:hover {
