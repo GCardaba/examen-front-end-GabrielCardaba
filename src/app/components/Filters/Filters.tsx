@@ -7,12 +7,14 @@ type Props = {
     setStatus: React.Dispatch<React.SetStateAction<string>>
     gender: string
     setGender: React.Dispatch<React.SetStateAction<string>>
+    fetchCharacters: () => void
+
 }
 
-const STATUS_CYCLE  = ['', 'Alive', 'Dead', 'unknown']
-const GENDER_CYCLE  = ['', 'Female', 'Male', 'Genderless', 'unknown']
+const STATUS_CYCLE  = ['Alive', 'Dead', 'unknown', '']
+const GENDER_CYCLE  = ['Female', 'Male', 'Genderless', 'unknown', '']
 
-export const Filters = ({ name, setName, status, setStatus, gender, setGender }: Props) => {
+export const Filters = ({ name, setName, status, setStatus, gender, setGender , fetchCharacters}: Props) => {
     // ciclo de filtros, de primeras vacío (todos), luego cada opción, y vuelve a empezar
     const nextStatus = () => {
         const i = STATUS_CYCLE.indexOf(status)
@@ -26,18 +28,14 @@ export const Filters = ({ name, setName, status, setStatus, gender, setGender }:
 
     return (
         <div className="filters">
-            <button onClick={nextStatus}>
-                Estado: {status || 'Todos'}
-            </button>
-            <button onClick={nextGender}>
-                Género: {gender || 'Todos'}
-            </button>
+            <button onClick={nextStatus}>Estado: {status || 'Todos'}</button>
+            <button onClick={nextGender}>Género: {gender || 'Todos'}</button>
             <input
                 value={name}
                 placeholder="Buscar por nombre..."
                 onChange={e => setName(e.target.value)}
             />
-            <button onClick={onSearch}>Buscar</button>
+            <button onClick={() => fetchCharacters()}>Buscar</button>
         </div>
     )
 }

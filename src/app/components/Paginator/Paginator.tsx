@@ -21,18 +21,16 @@ const pageNumbers = [...pageSet]
 
 return (
     <div className="paginator">
-        {prev && <button onClick={() => setPage(page - 1)}>{'<'}</button>}
+        {prev && <button onClick={() => setPage(page - 1)}>{'PREV'}</button>}
 
         {pageNumbers.map(p => (
             <button
                 key={p}
-                onClick={() => setPage(p)}
-                style={{ fontWeight: p === page ? 'bold' : 'normal' }}
-            >
+                onClick={() => setPage(p)}            >
                 {p}
             </button>
         ))}
 
-        {next && <button onClick={() => setPage(page + 1)}>{'>'}</button>}
+        {next && <button onClick={() => setPage(page + 1)}>{'NEXT'}</button>}
     </div>
 )}

@@ -10,10 +10,9 @@ import { CharacterCard } from "./components/CharacterCard/CharacterCard"
 export default function Home() {
     const [results, setResults]   = useState<apiResponse>()
     const [loading, setLoading]   = useState<boolean>(true)
-    const [error, setError]       = useState<boolean>(false)   // ← false, no true
+    const [error, setError]       = useState<boolean>(false)   // 
 
     const [name, setName]         = useState<string>("")
-    const [activeName, setActiveName] = useState<string>("")   // ← nombre confirmado
     const [status, setStatus]     = useState<string>("")
     const [gender, setGender]     = useState<string>("")
     const [page, setPage]         = useState<number>(1)
@@ -22,7 +21,7 @@ export default function Home() {
         setLoading(true)
         const params = new URLSearchParams()
         params.set('page', String(page))
-        if (activeName) params.set('name', activeName)
+        if (name) params.set('name', name)
         if (status)     params.set('status', status)
         if (gender)     params.set('gender', gender)
 
@@ -33,12 +32,9 @@ export default function Home() {
     }
 
     // Se ejecuta cuando cambia página, status o gender (automático)
-    useEffect(() => { fetchCharacters() }, [page, status, gender, activeName])
+  useEffect(() => { fetchCharacters() }, [page, status, gender])
 
     // Al cambiar filtros automáticos, volver a página 1
-
-    // Buscar por nombre solo con botón/Enter
-    const handleSearch = () => { setActiveName(name); setPage(1) }
 
     if (loading) return <h1>Cargando...</h1>
 
@@ -48,6 +44,7 @@ export default function Home() {
                 name={name}           setName={setName}
                 status={status}       setStatus={setStatus}
                 gender={gender}       setGender={setGender}
+    fetchCharacters={fetchCharacters}   
             />
             <div className="character-container">
                 {error || !results?.results.length ? 
